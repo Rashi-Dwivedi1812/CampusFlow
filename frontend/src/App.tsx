@@ -345,7 +345,14 @@ function App() {
           </h4>
 
           <p>
-            Attendance: {item.Ppercentage}%
+            <p>
+  Attendance: {
+    item.Ppercentage ??
+    item.LTpercantage ??
+    item.Lpercentage ??
+    0
+  }%
+</p>
           </p>
         </div>
       )
