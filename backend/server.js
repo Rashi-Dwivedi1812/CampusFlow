@@ -1,7 +1,15 @@
 const express = require("express");
 const cors = require("cors");
-
+require("dotenv").config();
 const app = express();
+const session = require("express-session");
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+  })
+);
 
 app.use(cors({
   origin: "http://localhost:5173",
@@ -17,6 +25,11 @@ app.get("/", (req, res) => {
 app.use(
   "/api/jportal",
   require("./routes/jportal.routes")
+);
+
+app.use(
+  "/api/classroom",
+  require("./routes/classroom")
 );
 
 const PORT = 5001;
