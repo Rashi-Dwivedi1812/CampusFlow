@@ -4,6 +4,17 @@ const oauth2Client = require("../config/google");
 
 const router = express.Router();
 
+const requireGoogleAuth = async (req, res, next) => {
+  if (!req.session.googleTokens) {
+    return res.status(401).json({
+      error: "Google account not connected",
+    });
+  }
+
+  oauth2Client.setCredentials(req.session.googleTokens);
+  await next();
+};
+
 // Login
 router.get("/login", (req, res) => {
   const url = oauth2Client.generateAuthUrl({
@@ -41,25 +52,17 @@ router.get("/callback", async (req, res) => {
 // Fetch Courses
 router.get("/courses", async (req, res) => {
   try {
-    if (!req.session.googleTokens) {
-      return res.status(401).json({
-        error: "Google account not connected",
+    await requireGoogleAuth(req, res, async () => {
+      const classroom = google.classroom({
+        version: "v1",
+        auth: oauth2Client,
       });
-    }
 
-    oauth2Client.setCredentials(
-      req.session.googleTokens
-    );
+      const response =
+        await classroom.courses.list();
 
-    const classroom = google.classroom({
-      version: "v1",
-      auth: oauth2Client,
+      res.json(response.data);
     });
-
-    const response =
-      await classroom.courses.list();
-
-    res.json(response.data);
   } catch (error) {
     console.error(error);
     res.status(500).json(error);
@@ -68,21 +71,19 @@ router.get("/courses", async (req, res) => {
 
 router.get("/assignments/:courseId", async (req, res) => {
   try {
-    oauth2Client.setCredentials(
-      req.session.googleTokens
-    );
-
-    const classroom = google.classroom({
-      version: "v1",
-      auth: oauth2Client,
-    });
-
-    const response =
-      await classroom.courses.courseWork.list({
-        courseId: req.params.courseId,
+    await requireGoogleAuth(req, res, async () => {
+      const classroom = google.classroom({
+        version: "v1",
+        auth: oauth2Client,
       });
 
-    res.json(response.data);
+      const response =
+        await classroom.courses.courseWork.list({
+          courseId: req.params.courseId,
+        });
+
+      res.json(response.data);
+    });
   } catch (error) {
     console.error(error);
     res.status(500).json(error);
@@ -91,41 +92,39 @@ router.get("/assignments/:courseId", async (req, res) => {
 
 router.get("/all-assignments", async (req, res) => {
   try {
-    oauth2Client.setCredentials(
-      req.session.googleTokens
-    );
+    await requireGoogleAuth(req, res, async () => {
+      const classroom = google.classroom({
+        version: "v1",
+        auth: oauth2Client,
+      });
 
-    const classroom = google.classroom({
-      version: "v1",
-      auth: oauth2Client,
+      const courses =
+        await classroom.courses.list({
+          courseStates: ["ACTIVE"],
+        });
+
+      const allAssignments = [];
+
+      for (const course of courses.data.courses || []) {
+        const work =
+          await classroom.courses.courseWork.list({
+            courseId: course.id,
+          });
+
+        (work.data.courseWork || []).forEach(item => {
+          allAssignments.push({
+            courseName: course.name,
+            courseId: course.id,
+            title: item.title,
+            dueDate: item.dueDate,
+            dueTime: item.dueTime,
+            state: item.state,
+          });
+        });
+      }
+
+      res.json(allAssignments);
     });
-
-    const courses =
-      await classroom.courses.list({
-        courseStates: ["ACTIVE"],
-      });
-
-    const allAssignments = [];
-
-    for (const course of courses.data.courses || []) {
-      const work =
-        await classroom.courses.courseWork.list({
-          courseId: course.id,
-        });
-
-      (work.data.courseWork || []).forEach(item => {
-        allAssignments.push({
-          courseName: course.name,
-          courseId: course.id,
-          title: item.title,
-          dueDate: item.dueDate,
-          dueTime: item.dueTime,
-          state: item.state,
-        });
-      });
-    }
-
-    res.json(allAssignments);
   } catch (err) {
     console.error(err);
     res.status(500).json(err);

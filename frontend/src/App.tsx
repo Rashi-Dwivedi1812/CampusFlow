@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { loginInstitute, fetchDashboard, logout } from "./services/jportal";
+import UpcomingAssignments from "./components/upcomingAssignments";
 import "./App.css";
 
 interface Subject {
@@ -15,6 +16,13 @@ interface ExamEvent {
   event_from: number;
 }
 
+interface AttendanceStudent {
+  subjectcode?: string;
+  Ppercentage?: unknown;
+  LTpercantage?: unknown;
+  Lpercentage?: unknown;
+}
+
 interface DashboardData {
   profile: {
   generalinformation: {
@@ -27,9 +35,9 @@ interface DashboardData {
   };
 };
   attendance: {
-  meta: any | null;
-  attendance: any | null;
-  error?: string;
+  meta: unknown | null;
+  attendance: { studentattendancelist?: AttendanceStudent[] } | null;
+  error?: string | null;
 };
   subjects: {
     semester: { registration_code: string };
@@ -42,6 +50,33 @@ interface DashboardData {
   };
 }
 
+interface InfoCardProps {
+  title: string;
+  value?: string | number | null;
+}
+
+function getPercentageValue(value: unknown) {
+  return typeof value === "number" ? value : 0;
+}
+
+function getAttendancePercentage(item: AttendanceStudent) {
+  return (
+    getPercentageValue(item.Ppercentage) ||
+    getPercentageValue(item.LTpercantage) ||
+    getPercentageValue(item.Lpercentage) ||
+    0
+  );
+}
+
+function InfoCard({ title, value }: InfoCardProps) {
+  return (
+    <div className="rounded-3xl border border-slate-800 bg-slate-900 p-6">
+      <p className="text-sm text-slate-400">{title}</p>
+      <h3 className="mt-2 text-xl font-bold">{value || "N/A"}</h3>
+    </div>
+  );
+}
+
 function App() {
   const [enrollmentNo, setEnrollmentNo] = useState("");
   const [password, setPassword] = useState("");
@@ -52,20 +87,18 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [activeTab, setActiveTab] = useState("profile");
 
-  const InfoCard = ({ title, value }) => (
-  <div className="rounded-3xl border border-slate-800 bg-slate-900 p-6">
-    <p className="text-sm text-slate-400">{title}</p>
-    <h3 className="mt-2 text-xl font-bold">{value || "N/A"}</h3>
-  </div>
-);
-
-  useEffect(() => {
+  const handleLogout = useCallback(async () => {
     if (sessionId) {
-      loadDashboard();
+      await logout(sessionId);
     }
+    localStorage.removeItem("sessionId");
+    setSessionId(null);
+    setDashboard(null);
+    setEnrollmentNo("");
+    setPassword("");
   }, [sessionId]);
 
-  const loadDashboard = async () => {
+  const loadDashboard = useCallback(async () => {
     if (!sessionId) return;
     setLoading(true);
     try {
@@ -75,11 +108,21 @@ function App() {
       }
     } catch (error) {
       console.error(error);
-      handleLogout();
+      await handleLogout();
     } finally {
       setLoading(false);
     }
-  };
+  }, [handleLogout, sessionId]);
+
+  useEffect(() => {
+    if (!sessionId) return;
+
+    const timeout = window.setTimeout(() => {
+      loadDashboard();
+    }, 0);
+
+    return () => window.clearTimeout(timeout);
+  }, [loadDashboard, sessionId]);
 
   const handleLogin = async () => {
     setLoading(true);
@@ -97,38 +140,35 @@ function App() {
     }
   };
 
-  const handleLogout = async () => {
-    if (sessionId) {
-      await logout(sessionId);
-    }
-    localStorage.removeItem("sessionId");
-    setSessionId(null);
-    setDashboard(null);
-    setEnrollmentNo("");
-    setPassword("");
-  };
-
   if (!sessionId) {
     return (
-      <div className="login-page">
-        <div className="login-card">
-          <h1>CampusFlow</h1>
-          <p className="login-subtitle">JIIT Student Portal</p>
+      <div className="min-h-screen flex items-center justify-center bg-slate-950 px-4">
+        <div className="w-full max-w-md rounded-3xl border border-slate-800 bg-slate-900 p-8">
+          <h1 className="text-3xl font-bold bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent">
+            CampusFlow
+          </h1>
+          <p className="mt-2 text-slate-400">JIIT Student Portal</p>
 
-          <div className="login-form">
+          <div className="mt-8 space-y-4">
             <input
+              className="w-full rounded-xl border border-slate-700 bg-slate-800 px-4 py-3 text-white placeholder-slate-400 focus:border-indigo-500 focus:outline-none"
               placeholder="Enrollment Number"
               value={enrollmentNo}
               onChange={(e) => setEnrollmentNo(e.target.value)}
               type="text"
             />
             <input
+              className="w-full rounded-xl border border-slate-700 bg-slate-800 px-4 py-3 text-white placeholder-slate-400 focus:border-indigo-500 focus:outline-none"
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               type="password"
             />
-            <button onClick={handleLogin} disabled={loading}>
+            <button
+              onClick={handleLogin}
+              disabled={loading}
+              className="w-full rounded-xl bg-indigo-600 px-4 py-3 font-medium text-white hover:bg-indigo-700 disabled:opacity-50"
+            >
               {loading ? "Logging in..." : "Login"}
             </button>
           </div>
@@ -253,11 +293,13 @@ function App() {
                     }
                   />
                 </div>
+
+                <UpcomingAssignments />
               </div>
             )}
 
             {/* Subjects */}
-            {activeTab === "subjects" && (
+            {dashboard && activeTab === "subjects" && (
               <>
                 <div className="mb-6 rounded-3xl bg-gradient-to-r from-indigo-600 to-cyan-600 p-6">
                   <h3 className="text-lg font-medium">
@@ -299,7 +341,7 @@ function App() {
             )}
 
             {/* Exams */}
-            {activeTab === "exams" && (
+            {dashboard && activeTab === "exams" && (
               <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
                 {dashboard.exams.examEvents?.map(
                   (exam, index) => (
