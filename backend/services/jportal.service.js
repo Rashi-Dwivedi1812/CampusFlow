@@ -86,8 +86,10 @@ async function fetchDashboard(sessionId) {
 async function fetchAttendance(portal) {
   try {
     const meta = await portal.get_attendance_meta();
+    
     const latestHeader = meta?.latest_header?.();
-    const latestSemester = meta?.latest_semester?.();
+    const latestSemester =
+  meta.semesters?.[1];
 
     if (!latestHeader || !latestSemester) {
       return {
@@ -114,7 +116,10 @@ async function fetchAttendance(portal) {
 async function fetchSubjects(portal) {
   try {
     const semesters = await portal.get_registered_semesters();
-    const latestSemester = Array.isArray(semesters) && semesters.length > 0 ? semesters[0] : null;
+    const latestSemester =
+  Array.isArray(semesters) && semesters.length > 1
+    ? semesters[1]
+    : semesters[0];
 
     if (!latestSemester) {
       return {

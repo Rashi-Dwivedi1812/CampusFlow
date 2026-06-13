@@ -328,21 +328,30 @@ function App() {
             )}
 
             {/* Attendance */}
-            {activeTab === "attendance" && (
-              <div className="rounded-3xl border border-slate-800 bg-slate-900 p-6">
-                <h3 className="mb-4 text-xl font-semibold">
-                  Attendance Data
-                </h3>
+            {activeTab === "attendance" && !loading && dashboard && (
+  <div>
+    <h3 className="text-2xl font-bold mb-4">
+      Attendance
+    </h3>
 
-                <pre className="overflow-auto rounded-xl bg-slate-950 p-4 text-sm">
-                  {JSON.stringify(
-                    dashboard.attendance,
-                    null,
-                    2
-                  )}
-                </pre>
-              </div>
-            )}
+    {dashboard.attendance?.attendance?.studentattendancelist?.map(
+      (item: any, index: number) => (
+        <div
+          key={index}
+          className="bg-slate-800 p-4 rounded-xl mb-3"
+        >
+          <h4 className="font-bold">
+            {item.subjectcode}
+          </h4>
+
+          <p>
+            Attendance: {item.Ppercentage}%
+          </p>
+        </div>
+      )
+    )}
+  </div>
+)}
           </>
         )}
       </main>
