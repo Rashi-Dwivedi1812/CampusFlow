@@ -43,50 +43,50 @@ export default function UpcomingAssignments() {
   };
 
   const getUrgencyBadge = (dueDate) => {
-    const parsedDueDate = getDueDate(dueDate);
+  const parsedDueDate = getDueDate(dueDate);
 
-    if (!parsedDueDate) {
-      return {
-        label: "No Due Date",
-        className: "bg-gray-100 text-gray-700",
-      };
-    }
-
-    const daysLeft = Math.ceil(
-      (new Date(
-        dueDate.year,
-        dueDate.month - 1,
-        dueDate.day
-      ) - new Date()) /
-        MS_PER_DAY
-    );
-
-    if (daysLeft === 0) {
-      return {
-        label: "🔴 Due Today",
-        className: "bg-red-100 text-red-700",
-      };
-    }
-
-    if (daysLeft === 1) {
-      return {
-        label: "🟠 Due Tomorrow",
-        className: "bg-orange-100 text-orange-700",
-      };
-    }
-
-    if (daysLeft <= 7) {
-      return {
-        label: "🟡 Due This Week",
-        className: "bg-yellow-100 text-yellow-700",
-      };
-    }
-
+  if (!parsedDueDate) {
     return {
-      label: "🟢 Upcoming",
-      className: "bg-green-100 text-green-700",
+      label: "No Due Date",
+      className:
+        "bg-slate-100 text-slate-700",
     };
+  }
+
+  const daysLeft = Math.ceil(
+    (parsedDueDate - new Date()) / MS_PER_DAY
+  );
+
+  if (daysLeft === 0) {
+    return {
+      label: "Due Today",
+      className:
+        "bg-red-100 text-red-700",
+    };
+  }
+
+  if (daysLeft === 1) {
+    return {
+      label: "Tomorrow",
+      className:
+        "bg-orange-100 text-orange-700",
+    };
+  }
+
+  if (daysLeft <= 7) {
+    return {
+      label: "This Week",
+      className:
+        "bg-amber-100 text-amber-700",
+    };
+  }
+
+  return {
+    label: "Upcoming",
+    className:
+      "bg-emerald-100 text-emerald-700",
   };
+};
 
   const getUpcomingAssignments = () => {
     const today = new Date();
@@ -113,72 +113,139 @@ export default function UpcomingAssignments() {
   }
 
   return (
-    <div className="bg-white rounded-2xl shadow-lg p-5">
-      <div className="flex items-center justify-between mb-4">
-        <h2 className="font-bold text-xl">
-          📚 Upcoming Assignments
-        </h2>
-
-        <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">
-          {upcomingAssignments.length} Next
-        </span>
-      </div>
-
-      {error ? (
-        <div className="rounded-xl border border-orange-200 bg-orange-50 p-4 text-orange-800">
-          <p className="mb-3 text-sm">{error}</p>
-          <a
-            href="http://localhost:5001/api/classroom/login"
-            className="inline-flex items-center rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700"
-          >
-            Connect Google Classroom
-          </a>
+  <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-xl">
+    {/* Header */}
+    <div className="bg-gradient-to-r from-indigo-600 via-violet-600 to-cyan-600 p-6 text-white">
+      <div className="flex items-center justify-between">
+        <div>
+          <h2 className="text-2xl font-bold">
+            Upcoming Assignments
+          </h2>
+          <p className="mt-1 text-sm text-indigo-100">
+            Track your next deadlines
+          </p>
         </div>
-      ) : upcomingAssignments.length === 0 ? (
-        <p className="text-gray-500">
-          No upcoming assignments.
+
+        <div className="rounded-2xl bg-white/20 px-4 py-2 backdrop-blur-md">
+          <span className="text-lg font-bold">
+            {upcomingAssignments.length}
+          </span>
+          <p className="text-xs text-indigo-100">
+            Pending
+          </p>
+        </div>
+      </div>
+    </div>
+
+    {/* Loading */}
+    {loading ? (
+      <div className="p-8">
+        <div className="animate-pulse space-y-4">
+          <div className="h-20 rounded-2xl bg-slate-200"></div>
+          <div className="h-20 rounded-2xl bg-slate-200"></div>
+          <div className="h-20 rounded-2xl bg-slate-200"></div>
+        </div>
+      </div>
+    ) : error ? (
+      /* Error State */
+      <div className="p-6">
+        <div className="rounded-2xl border border-orange-200 bg-orange-50 p-5">
+          <div className="flex items-start gap-3">
+            <div className="text-2xl">⚠️</div>
+
+            <div className="flex-1">
+              <h3 className="font-semibold text-orange-900">
+                Google Classroom Not Connected
+              </h3>
+
+              <p className="mt-1 text-sm text-orange-700">
+                {error}
+              </p>
+
+              <a
+                href="http://localhost:5001/api/classroom/login"
+                className="mt-4 inline-flex items-center rounded-xl bg-indigo-600 px-4 py-2 text-sm font-medium text-white transition hover:bg-indigo-700"
+              >
+                Connect Classroom →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    ) : upcomingAssignments.length === 0 ? (
+      /* Empty State */
+      <div className="flex flex-col items-center justify-center p-10 text-center">
+        <div className="mb-4 text-6xl">🎉</div>
+
+        <h3 className="text-lg font-semibold text-slate-800">
+          No Upcoming Assignments
+        </h3>
+
+        <p className="mt-2 text-sm text-slate-500">
+          You're all caught up for now.
         </p>
-      ) : (
-        <div className="space-y-3">
-          {upcomingAssignments.map((assignment) => (
+      </div>
+    ) : (
+      /* Assignment List */
+      <div className="space-y-4 p-6">
+        {upcomingAssignments.map((assignment) => {
+          const badge = getUrgencyBadge(
+            assignment.dueDate
+          );
+
+          return (
             <div
-              key={assignment.courseId + assignment.title + assignment.dueDate?.year}
-              className="border rounded-xl p-4 hover:bg-gray-50 transition"
+              key={
+                assignment.courseId +
+                assignment.title +
+                assignment.dueDate?.year
+              }
+              className="group rounded-2xl border border-slate-200 bg-slate-50 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-indigo-300 hover:bg-white hover:shadow-lg"
             >
-              <div className="flex justify-between items-start gap-4">
-                <div>
-                  <h3 className="font-semibold">
+              <div className="flex items-start justify-between gap-4">
+                <div className="min-w-0 flex-1">
+                  <h3 className="truncate text-lg font-semibold text-slate-900">
                     {assignment.title}
                   </h3>
 
-                  <p className="text-sm text-gray-600">
+                  <p className="mt-1 text-sm font-medium text-indigo-600">
                     {assignment.courseName}
                   </p>
 
-                  <p className="text-sm mt-1">
-                    📅 {getDueDate(assignment.dueDate)?.toLocaleDateString() || "No Due Date"}
-                  </p>
+                  <div className="mt-3 flex items-center gap-2 text-sm text-slate-500">
+                    <span>📅</span>
+
+                    <span>
+                      {getDueDate(
+                        assignment.dueDate
+                      )?.toLocaleDateString() ||
+                        "No Due Date"}
+                    </span>
+                  </div>
                 </div>
 
-                <div className="flex flex-col items-end gap-2">
-                  <span className={`px-3 py-1 rounded-full text-sm font-medium ${getUrgencyBadge(assignment.dueDate).className}`}>
-                    {getUrgencyBadge(assignment.dueDate).label}
+                <div className="flex flex-col items-end gap-3">
+                  <span
+                    className={`rounded-full px-3 py-1 text-xs font-semibold ${badge.className}`}
+                  >
+                    {badge.label}
                   </span>
 
                   <a
                     href={assignment.link}
                     target="_blank"
                     rel="noreferrer"
-                    className="text-blue-600 text-sm font-medium"
+                    className="rounded-xl bg-slate-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-indigo-600"
                   >
-                    Open →
+                    Open
                   </a>
                 </div>
               </div>
             </div>
-          ))}
-        </div>
-      )}
-    </div>
-  );
+          );
+        })}
+      </div>
+    )}
+  </div>
+);
 }
