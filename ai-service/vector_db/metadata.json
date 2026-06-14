@@ -3,24 +3,276 @@
     "id": "profile",
     "title": "Student profile",
     "source": "JPortal",
-    "text": "photo&signature: photo: /9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBA; qualification: division: 1; fullmarks: 600; qualificationcode: 10th; obtainedmarks: 484; yearofpassing: 2021; cgpa: 0; percentagemarks:; generalinformation: cdistrict: Prayagraj; apaarid: 926474249497; academicyear: 2324; gender: M; cpostalcode: 211002; cstatename: UTTAR PRADE"
+    "text": "photo&signature: photo: /9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAoHBwkHBgoJCAkLCwoMDxkQDw4ODx4WFxIZJCAmJSMgIyIoLTkwKCo2KyIjMkQyNjs9QEBAJjBGS0U+S; qualification: division: 1; fullmarks: 600; qualificationcode: 10th; obtainedmarks: 580; yearofpassing: 2021; cgpa: 0; percentagemarks:; generalinformation: cdistrict: Ghaziabad; apaarid: 502220154007; academicyear: 2324; gender: F; cpostalcode: 201012; cstatename: UTTAR PRADE"
   },
   {
     "id": "attendance",
     "title": "Attendance",
     "source": "JPortal",
-    "text": "meta: raw_response: client: JIIT; headerlist: branchdesc: COMPUTER SCIENCE & ENGINEERING; name: SACHIN MISHRA; programdesc: BA; attendance: studentattendancelist: LTpercantage: 70; individualsubjectcode: 15B11CI514; Tsubjectcomponentid: NDSCP19050000002; subje"
+    "text": "studentattendancelist: subjectcode: TEST SUBJECT(123); LTpercantage: 80; subjectcode: AI SUBJECT(456); Lpercentage: 75"
   },
   {
     "id": "subjects",
     "title": "Subjects and faculty",
     "source": "JPortal",
-    "text": "semester: registration_code: 2026EVESEM; registration_id: NDRUM25100000001; subjects: employee_name: AKANSHA SINGH; employee_code: JIIT2286; minor_subject: N; remarks: REG; stytype: REG; credits: 4; subject; totalCredits: 23"
+    "text": "subjects: subject_code: 123; subject_desc: Test Subject"
   },
   {
     "id": "exams",
     "title": "Exam events",
     "source": "JPortal",
     "text": "semester: registration_code: 2026EVESEM; registration_id: NDRUM25100000001; examEvents: exam_event_code: T1-2026 EVEN SEM; event_from: 1768242600000; exam_event_desc: T1-2026 EVEN SEM; registration_id: NDRUM2"
+  },
+  {
+    "id": "chat-profile",
+    "title": "Student profile",
+    "source": "JPortal",
+    "text": "{\"photo&signature\":{\"signature\":null,\"photo\":\"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"
+  },
+  {
+    "id": "chat-attendance",
+    "title": "Attendance",
+    "source": "JPortal",
+    "text": "{\"meta\":{\"raw_response\":{\"client\":\"JIIT\",\"headerlist\":[{\"branchdesc\":\"COMPUTER SCIENCE & ENGINEERING\",\"name\":\"RASHI DWIVEDI\",\"programdesc\":\"BACHELOR OF TECHNOLOGY\",\"stynumber\":\"6\"}],\"semlist\":[{\"registrationcode\":\"2026ODDSEM\",\"registrationid\":\"NDRUM26040000001\"},{\"registrationcode\":\"2026EVESEM\",\"registrationid\":\"NDRUM25100000001\"},{\"registrationcode\":\"2025ODDSEM\",\"registrationid\":\"NDRUM25030000001\"}]},\"headers\":[{\"branchdesc\":\"COMPUTER SCIENCE & ENGINEERING\",\"name\":\"RASHI DWIVEDI\",\"programdesc\":\"BACHELOR OF TECHNOLOGY\",\"stynumber\":\"6\"}],\"semesters\":[{\"registration_code\":\"2026ODDSEM\",\"registration_id\":\"NDRUM26040000001\"},{\"registration_code\":\"2026EVESEM\",\"registration_id\":\"NDRUM25100000001\"},{\"registration_code\":\"2025ODDSEM\",\"registration_id\":\"NDRUM25030000001\"}]},\"attendance\":{\"studentattendancelist\":[{\"LTpercantage\":76,\"individualsubjectcode\":\"15B11CI514\",\"Tsubjectcomponentid\":\"NDSCP19050000002\",\"subjectcode\":\"ARTIFICIAL INTELLIGENCE(15B11CI514)\",\"subjectid\":\"160040\",\"Lsubjectcomponentid\":\"NDSCP19050000001\",\"studentid\":\"JP12C230602\",\"Tprepercentage\":0,\"Lpercentage\":77.5,\"Tpercentage\":70,\"registrationid\":\"NDRUM25100000001\",\"instituteid\":\"11IN1902J000003\",\"Lprepercentage\":0},{\"studentid\":\"JP12C230602\",\"LTpercantage\":75,\"individualsubjectcode\":\"15B17CI574\",\"registrationid\":\"NDRUM25100000001\",\"Pprepercentage\":0,\"instituteid\":\"11IN1902J000003\",\"subjectcode\":\"ARTIFICIAL INTELLIGENCE LAB(15B17CI574)\",\"Psubjectcomponentid\":\"NDSCP19050000003\",\"subjectid\":\"160044\",\"Ppercentage\":75},{\"studentid\":\"JP12C230602\",\"LTpercantage\":0,\"individualsubjectcode\":\"15B19CI691\",\"registrationid\":\"NDRUM25100000001\",\"Pprepercentage\":0,\"instituteid\":\"11IN1902J000003\",\"subjectcode\":\"MINOR PROJECT-2(15B19CI691)\",\"Psubjectcomponentid\":\"NDSCP19050000003\",\"subjectid\":\"160082\",\"Ppercentage\":0},{\"LTpercantage\":73.7,\"individualsubjectcode\":\"16B1NHS635\",\"Tsubjectcomponentid\":\"NDSCP19050000002\",\"subjectcode\":\"ORGANIZATIONAL BEHAVIOR(16B1NHS635)\",\"subjectid\":\"160105\",\"Lsubjectcomponentid\":\"NDSCP19050000001\",\"studentid\":\"JP12C230602\",\"Tprepercentage\":0,\"Lpercentage\":73.1,\"Tpercentage\":75,\"registrationid\":\"NDRUM25100000001\",\"instituteid\":\"11IN1902J000003\",\"Lprepercentage\":0},{\"studentid\":\"JP12C230602\",\"LTpercantage\":71.1,\"Lpercentage\":71.1,\"individualsubjectcode\":\"16B1NMA633\",\"registrationid\":\"NDRUM25100000001\",\"instituteid\":\"11IN1902J000003\",\"subjectcode\":\"STATISTICS(16B1NMA633)\",\"subjectid\":\"160110\",\"Lprepercentage\":0,\"Lsubjectcomponentid\":\"NDSCP19050000001\"},{\"studentid\":\"JP12C230602\",\"LTpercant"
+  },
+  {
+    "id": "chat-subjects",
+    "title": "Subjects and faculty",
+    "source": "JPortal",
+    "text": "{\"semester\":{\"registration_code\":\"2026EVESEM\",\"registration_id\":\"NDRUM25100000001\"},\"subjects\":[{\"employee_name\":\"AKANSHA SINGH\",\"employee_code\":\"JIIT2286\",\"minor_subject\":\"N\",\"remarks\":\"REG\",\"stytype\":\"REG\",\"credits\":4,\"subject_code\":\"15B11CI514\",\"subject_component_code\":\"T\",\"subject_desc\":\"ARTIFICIAL INTELLIGENCE\",\"subject_id\":\"160040\",\"audtsubject\":\"N\"},{\"employee_name\":\"SHRI. KESHAV SRIVASTAVA\",\"employee_code\":\"KESHAN\",\"minor_subject\":\"N\",\"remarks\":\"REG\",\"stytype\":\"REG\",\"credits\":4,\"subject_code\":\"15B11CI514\",\"subject_component_code\":\"L\",\"subject_desc\":\"ARTIFICIAL INTELLIGENCE\",\"subject_id\":\"160040\",\"audtsubject\":\"N\"},{\"employee_name\":\"AYUSHI PANDEY\",\"employee_code\":\"JIIT2133\",\"minor_subject\":\"N\",\"remarks\":\"REG\",\"stytype\":\"REG\",\"credits\":1,\"subject_code\":\"15B17CI574\",\"subject_component_code\":\"P\",\"subject_desc\":\"ARTIFICIAL INTELLIGENCE LAB\",\"subject_id\":\"160044\",\"audtsubject\":\"N\"},{\"employee_name\":\"HIMANSHU AGRAWAL\",\"employee_code\":\"JIIT1497\",\"minor_subject\":\"N\",\"remarks\":\"REG\",\"stytype\":\"REG\",\"credits\":2,\"subject_code\":\"15B19CI691\",\"subject_component_code\":\"P\",\"subject_desc\":\"MINOR PROJECT-2\",\"subject_id\":\"160082\",\"audtsubject\":\"N\"},{\"employee_name\":\"ANSHU BANWARI\",\"employee_code\":\"JIIT1364\",\"minor_subject\":\"N\",\"remarks\":\"REG\",\"stytype\":\"REG\",\"credits\":3,\"subject_code\":\"16B1NHS635\",\"subject_component_code\":\"L\",\"subject_desc\":\"ORGANIZATIONAL BEHAVIOR\",\"subject_id\":\"160105\",\"audtsubject\":\"N\"},{\"employee_name\":\"ANSHU BANWARI\",\"employee_code\":\"JIIT1364\",\"minor_subject\":\"N\",\"remarks\":\"REG\",\"stytype\":\"REG\",\"credits\":3,\"subject_code\":\"16B1NHS635\",\"subject_component_code\":\"T\",\"subject_desc\":\"ORGANIZATIONAL BEHAVIOR\",\"subject_id\":\"160105\",\"audtsubject\":\"N\"},{\"employee_name\":\"KAMLESH KUMAR SHUKLA\",\"employee_code\":\"JIIT2062\",\"minor_subject\":\"N\",\"remarks\":\"REG\",\"stytype\":\"REG\",\"credits\":3,\"subject_code\":\"16B1NMA633\",\"subject_component_code\":\"L\",\"subject_desc\":\"STATISTICS\",\"subject_id\":\"160110\",\"audtsubject\":\"N\"},{\"employee_name\":\"MADHAV BANSAL\",\"employee_code\":\"JIIT2287\",\"minor_subject\":\"N\",\"remarks\":\"REG\",\"stytype\":\"REG\",\"credits\":3,\"subject_code\":\"18B11CS311\",\"subject_component_code\":\"L\",\"subject_desc\":\"Computer Networks and Internet of Things\",\"subject_id\":\"200079\",\"audtsubject\":\"N\"},{\"employee_name\":\"MADHAV BANSAL\",\"employee_code\":\"JIIT2287\",\"minor_subject\":\"N\",\"remarks\":\"REG\",\"stytype\":\"REG\",\"credits\":1,\"subject_code\":\"18B15CS311\",\"subject_component_code\":\"P\",\"subject_desc\":\"Computer Networks and Internet of Things Lab\",\"subject_id\":\"200080\",\"audtsubject\":\"N\""
+  },
+  {
+    "id": "chat-exams",
+    "title": "Exam events",
+    "source": "JPortal",
+    "text": "{\"semester\":{\"registration_code\":\"2026EVESEM\",\"registration_id\":\"NDRUM25100000001\"},\"examEvents\":[{\"exam_event_code\":\"T1-2026 EVEN SEM\",\"event_from\":1768242600000,\"exam_event_desc\":\"T1-2026 EVEN SEM\",\"registration_id\":\"NDRUM25100000001\",\"exam_event_id\":\"JIEXV2601A0000003\"},{\"exam_event_code\":\"T2-2026EVEN-20MARKS\",\"event_from\":1771180200000,\"exam_event_desc\":\"TEST 2-2026 EVEN SEM -20MARKS\",\"registration_id\":\"NDRUM25100000001\",\"exam_event_id\":\"JIEXV2602A0000005\"},{\"exam_event_code\":\"ENDTR-26EVE-35MARKS\",\"event_from\":1774290600000,\"exam_event_desc\":\"ENDTR-26EVE-35MARKS\",\"registration_id\":\"NDRUM25100000001\",\"exam_event_id\":\"JIEXV2603A0000001\"},{\"exam_event_code\":\"MAKEUP TEST-20 MARKS\",\"event_from\":1775673000000,\"exam_event_desc\":\"MAKEUP TEST-20 MARKS\",\"registration_id\":\"NDRUM25100000001\",\"exam_event_id\":\"JIEXV2604A0000001\"}]}"
+  },
+  {
+    "id": "chat-daily-summary",
+    "title": "AI daily summary",
+    "source": "CampusFlow AI",
+    "text": "{\"greeting\":\"Good Morning RASHI DWIVEDI\",\"class_count\":0,\"todays_classes\":[{\"subject\":\"No timetable data available\",\"time\":\"\",\"location\":\"\"}],\"attendance_alerts\":[{\"subject\":\"MINOR PROJECT-2(15B19CI691)\",\"attendance\":0,\"risk\":\"critical\",\"safe_skips\":0,\"required_classes\":30,\"recommendation\":\"Attend next 30 MINOR PROJECT-2(15B19CI691) classes to reach 75% attendance.\",\"prediction\":\"Likely eligibility risk if upcoming classes are missed.\"},{\"subject\":\"ORGANIZATIONAL BEHAVIOR(16B1NHS635)\",\"attendance\":73.7,\"risk\":\"high\",\"safe_skips\":0,\"required_classes\":4,\"recommendation\":\"Attend next 4 ORGANIZATIONAL BEHAVIOR(16B1NHS635) classes to reach 75% attendance.\",\"prediction\":\"Likely eligibility risk if upcoming classes are missed.\"},{\"subject\":\"STATISTICS(16B1NMA633)\",\"attendance\":71.1,\"risk\":\"high\",\"safe_skips\":0,\"required_classes\":16,\"recommendation\":\"Attend next 16 STATISTICS(16B1NMA633) classes to reach 75% attendance.\",\"prediction\":\"Likely eligibility risk if upcoming classes are missed.\"},{\"subject\":\"Introduction to Large Scale Database Systems(21B12CS314)\",\"attendance\":71.9,\"risk\":\"high\",\"safe_skips\":0,\"required_classes\":12,\"recommendation\":\"Attend next 12 Introduction to Large Scale Database Systems(21B12CS314) classes to reach 75% attendance.\",\"prediction\":\"Likely eligibility risk if upcoming classes are missed.\"},{\"subject\":\"Advanced Data Structures and Algorithms Workshop(25B18CS311)\",\"attendance\":69.2,\"risk\":\"high\",\"safe_skips\":0,\"required_classes\":24,\"recommendation\":\"Attend next 24 Advanced Data Structures and Algorithms Workshop(25B18CS311) classes to reach 75% attendance.\",\"prediction\":\"Likely eligibility risk if upcoming classes are missed.\"}],\"pending_assignments\":[],\"important_notices\":[],\"placement_reminders\":[],\"recommended_actions\":[\"Attend MINOR PROJECT-2(15B19CI691) urgently. Attendance is 0.0%.\"],\"attendance_health\":[{\"subject\":\"ARTIFICIAL INTELLIGENCE(15B11CI514)\",\"attendance\":76,\"risk\":\"medium\",\"safe_skips\":4,\"required_classes\":0,\"recommendation\":\"Maintain attendance. Safe skip allowance is 4 class(es).\",\"prediction\":\"Stable, but one or two absences can create risk.\"},{\"subject\":\"ARTIFICIAL INTELLIGENCE LAB(15B17CI574)\",\"attendance\":75,\"risk\":\"medium\",\"safe_skips\":0,\"required_classes\":0,\"recommendation\":\"Maintain attendance. Safe skip allowance is 0 class(es).\",\"prediction\":\"Stable, but one or two absences can create risk.\"},{\"subject\":\"MINOR PROJECT-2(15B19CI691)\",\"attendance\":0,\"risk\":\"critical\",\"safe_skips\":0,\"required_classes\":30,\"recom"
+  },
+  {
+    "id": "chat-attendance-health",
+    "title": "Attendance health",
+    "source": "CampusFlow AI",
+    "text": "{\"items\":[{\"subject\":\"ARTIFICIAL INTELLIGENCE(15B11CI514)\",\"attendance\":76,\"risk\":\"medium\",\"safe_skips\":4,\"required_classes\":0,\"recommendation\":\"Maintain attendance. Safe skip allowance is 4 class(es).\",\"prediction\":\"Stable, but one or two absences can create risk.\"},{\"subject\":\"ARTIFICIAL INTELLIGENCE LAB(15B17CI574)\",\"attendance\":75,\"risk\":\"medium\",\"safe_skips\":0,\"required_classes\":0,\"recommendation\":\"Maintain attendance. Safe skip allowance is 0 class(es).\",\"prediction\":\"Stable, but one or two absences can create risk.\"},{\"subject\":\"MINOR PROJECT-2(15B19CI691)\",\"attendance\":0,\"risk\":\"critical\",\"safe_skips\":0,\"required_classes\":30,\"recommendation\":\"Attend next 30 MINOR PROJECT-2(15B19CI691) classes to reach 75% attendance.\",\"prediction\":\"Likely eligibility risk if upcoming classes are missed.\"},{\"subject\":\"ORGANIZATIONAL BEHAVIOR(16B1NHS635)\",\"attendance\":73.7,\"risk\":\"high\",\"safe_skips\":0,\"required_classes\":4,\"recommendation\":\"Attend next 4 ORGANIZATIONAL BEHAVIOR(16B1NHS635) classes to reach 75% attendance.\",\"prediction\":\"Likely eligibility risk if upcoming classes are missed.\"},{\"subject\":\"STATISTICS(16B1NMA633)\",\"attendance\":71.1,\"risk\":\"high\",\"safe_skips\":0,\"required_classes\":16,\"recommendation\":\"Attend next 16 STATISTICS(16B1NMA633) classes to reach 75% attendance.\",\"prediction\":\"Likely eligibility risk if upcoming classes are missed.\"},{\"subject\":\"Computer Networks and Internet of Things(18B11CS311)\",\"attendance\":84.6,\"risk\":\"medium\",\"safe_skips\":40,\"required_classes\":0,\"recommendation\":\"Maintain attendance. Safe skip allowance is 40 class(es).\",\"prediction\":\"Stable, but one or two absences can create risk.\"},{\"subject\":\"Computer Networks and Internet of Things Lab(18B15CS311)\",\"attendance\":80,\"risk\":\"medium\",\"safe_skips\":20,\"required_classes\":0,\"recommendation\":\"Maintain attendance. Safe skip allowance is 20 class(es).\",\"prediction\":\"Stable, but one or two absences can create risk.\"},{\"subject\":\"Fundamentals of Distributed and Cloud Computing(21B12CS313)\",\"attendance\":78.6,\"risk\":\"medium\",\"safe_skips\":16,\"required_classes\":0,\"recommendation\":\"Maintain attendance. Safe skip allowance is 16 class(es).\",\"prediction\":\"Stable, but one or two absences can create risk.\"},{\"subject\":\"Introduction to Large Scale Database Systems(21B12CS314)\",\"attendance\":71.9,\"risk\":\"high\",\"safe_skips\":0,\"required_classes\":12,\"recommendation\":\"Attend next 12 Introduction to Large Scale Database Systems(21B12CS314) classes to reach 75% attendance.\",\"prediction\":\"Likely elig"
+  },
+  {
+    "id": "chat-important-updates",
+    "title": "Important updates",
+    "source": "CampusFlow AI",
+    "text": "{\"items\":[{\"title\":\"Attendance data refreshed\",\"summary\":\"attendance data refreshed latest attendance data is available for review.\",\"urgency\":\"HIGH\",\"importance\":100,\"category\":\"attendance\",\"source\":\"JPortal\"},{\"title\":\"T1-2026 EVEN SEM\",\"summary\":\"t1-2026 even sem t1-2026 even sem\",\"urgency\":\"LOW\",\"importance\":30,\"category\":\"general\",\"source\":\"JPortal\"},{\"title\":\"TEST 2-2026 EVEN SEM -20MARKS\",\"summary\":\"test 2-2026 even sem -20marks t2-2026even-20marks\",\"urgency\":\"LOW\",\"importance\":30,\"category\":\"general\",\"source\":\"JPortal\"},{\"title\":\"ENDTR-26EVE-35MARKS\",\"summary\":\"endtr-26eve-35marks endtr-26eve-35marks\",\"urgency\":\"LOW\",\"importance\":30,\"category\":\"general\",\"source\":\"JPortal\"},{\"title\":\"MAKEUP TEST-20 MARKS\",\"summary\":\"makeup test-20 marks makeup test-20 marks\",\"urgency\":\"LOW\",\"importance\":30,\"category\":\"general\",\"source\":\"JPortal\"}],\"summary\":\"1 high priority update(s) found. Focus on exams, deadlines, attendance, and placements first.\"}"
+  },
+  {
+    "id": "chat-recommendations",
+    "title": "Recommendations",
+    "source": "CampusFlow AI",
+    "text": "{\"recommendations\":[{\"score\":95,\"text\":\"Attend MINOR PROJECT-2(15B19CI691) urgently. Attendance is 0.0%.\",\"category\":\"attendance\"}]}"
+  },
+  {
+    "id": "classroom-assignment-0",
+    "title": "Assignment 1",
+    "source": "Google Classroom",
+    "text": "{\"courseName\":\"Computer Networks 6th Sem 2026\",\"courseId\":\"837817705120\",\"title\":\"Assignment 1\",\"dueDate\":{\"year\":2026,\"month\":1,\"day\":30},\"dueTime\":{\"hours\":18,\"minutes\":29},\"state\":\"PUBLISHED\"}"
+  },
+  {
+    "id": "classroom-assignment-1",
+    "title": "Tutorial 5",
+    "source": "Google Classroom",
+    "text": "{\"courseName\":\"AI Tut\",\"courseId\":\"824541565050\",\"title\":\"Tutorial 5\",\"dueDate\":{\"year\":2026,\"month\":4,\"day\":25},\"dueTime\":{\"hours\":18,\"minutes\":29},\"state\":\"PUBLISHED\"}"
+  },
+  {
+    "id": "classroom-assignment-2",
+    "title": "Tutorial 4",
+    "source": "Google Classroom",
+    "text": "{\"courseName\":\"AI Tut\",\"courseId\":\"824541565050\",\"title\":\"Tutorial 4\",\"dueDate\":{\"year\":2026,\"month\":3,\"day\":9},\"dueTime\":{\"hours\":18,\"minutes\":29},\"state\":\"PUBLISHED\"}"
+  },
+  {
+    "id": "classroom-assignment-3",
+    "title": "TUTORIAL 3",
+    "source": "Google Classroom",
+    "text": "{\"courseName\":\"AI Tut\",\"courseId\":\"824541565050\",\"title\":\"TUTORIAL 3\",\"dueDate\":{\"year\":2026,\"month\":2,\"day\":6},\"dueTime\":{\"hours\":18,\"minutes\":29},\"state\":\"PUBLISHED\"}"
+  },
+  {
+    "id": "classroom-assignment-4",
+    "title": "Tutorial 1",
+    "source": "Google Classroom",
+    "text": "{\"courseName\":\"AI Tut\",\"courseId\":\"824541565050\",\"title\":\"Tutorial 1\",\"dueDate\":{\"year\":2026,\"month\":1,\"day\":28},\"dueTime\":{\"hours\":18,\"minutes\":29},\"state\":\"PUBLISHED\"}"
+  },
+  {
+    "id": "classroom-assignment-5",
+    "title": "TUTORIAL 2",
+    "source": "Google Classroom",
+    "text": "{\"courseName\":\"AI Tut\",\"courseId\":\"824541565050\",\"title\":\"TUTORIAL 2\",\"dueDate\":{\"year\":2026,\"month\":1,\"day\":31},\"dueTime\":{\"hours\":18,\"minutes\":29},\"state\":\"PUBLISHED\"}"
+  },
+  {
+    "id": "classroom-assignment-6",
+    "title": "PBL Notice",
+    "source": "Google Classroom",
+    "text": "{\"courseName\":\"2026_Organizational Behavior\",\"courseId\":\"840129368270\",\"title\":\"PBL Notice\",\"dueDate\":{\"year\":2026,\"month\":4,\"day\":24},\"dueTime\":{\"hours\":18,\"minutes\":29},\"state\":\"PUBLISHED\"}"
+  },
+  {
+    "id": "classroom-assignment-7",
+    "title": "PBL Report",
+    "source": "Google Classroom",
+    "text": "{\"courseName\":\"Advance Data Structures and Algorithms Workshop(25B18CS311)\",\"courseId\":\"824184574386\",\"title\":\"PBL Report\",\"dueDate\":{\"year\":2026,\"month\":5,\"day\":8},\"dueTime\":{\"hours\":18,\"minutes\":29},\"state\":\"PUBLISHED\"}"
+  },
+  {
+    "id": "classroom-assignment-8",
+    "title": "Combine pdf of all assignments",
+    "source": "Google Classroom",
+    "text": "{\"courseName\":\"Advance Data Structures and Algorithms Workshop(25B18CS311)\",\"courseId\":\"824184574386\",\"title\":\"Combine pdf of all assignments\",\"dueDate\":{\"year\":2026,\"month\":5,\"day\":8},\"dueTime\":{\"hours\":18,\"minutes\":29},\"state\":\"PUBLISHED\"}"
+  },
+  {
+    "id": "classroom-assignment-9",
+    "title": "Lab_test(implementation)",
+    "source": "Google Classroom",
+    "text": "{\"courseName\":\"Advance Data Structures and Algorithms Workshop(25B18CS311)\",\"courseId\":\"824184574386\",\"title\":\"Lab_test(implementation)\",\"state\":\"PUBLISHED\"}"
+  },
+  {
+    "id": "classroom-assignment-10",
+    "title": "PBL Report",
+    "source": "Google Classroom",
+    "text": "{\"courseName\":\"Advance Data Structures and Algorithms Workshop(25B18CS311)\",\"courseId\":\"824184574386\",\"title\":\"PBL Report\",\"dueDate\":{\"year\":2026,\"month\":4,\"day\":24},\"dueTime\":{\"hours\":18,\"minutes\":29},\"state\":\"PUBLISHED\"}"
+  },
+  {
+    "id": "classroom-assignment-11",
+    "title": "Lab test ADS(Implementation)",
+    "source": "Google Classroom",
+    "text": "{\"courseName\":\"Advance Data Structures and Algorithms Workshop(25B18CS311)\",\"courseId\":\"824184574386\",\"title\":\"Lab test ADS(Implementation)\",\"dueDate\":{\"year\":2026,\"month\":4,\"day\":15},\"dueTime\":{\"hours\":9,\"minutes\":30},\"state\":\"PUBLISHED\"}"
+  },
+  {
+    "id": "classroom-assignment-12",
+    "title": "Assignment10",
+    "source": "Google Classroom",
+    "text": "{\"courseName\":\"Advance Data Structures and Algorithms Workshop(25B18CS311)\",\"courseId\":\"824184574386\",\"title\":\"Assignment10\",\"state\":\"PUBLISHED\"}"
+  },
+  {
+    "id": "classroom-assignment-13",
+    "title": "Assignment8_9",
+    "source": "Google Classroom",
+    "text": "{\"courseName\":\"Advance Data Structures and Algorithms Workshop(25B18CS311)\",\"courseId\":\"824184574386\",\"title\":\"Assignment8_9\",\"dueDate\":{\"year\":2026,\"month\":4,\"day\":17},\"dueTime\":{\"hours\":18,\"minutes\":29},\"state\":\"PUBLISHED\"}"
+  },
+  {
+    "id": "classroom-assignment-14",
+    "title": "TRIE tree ",
+    "source": "Google Classroom",
+    "text": "{\"courseName\":\"Advance Data Structures and Algorithms Workshop(25B18CS311)\",\"courseId\":\"824184574386\",\"title\":\"TRIE tree \",\"state\":\"PUBLISHED\"}"
+  },
+  {
+    "id": "classroom-assignment-15",
+    "title": "Assignment-6",
+    "source": "Google Classroom",
+    "text": "{\"courseName\":\"Advance Data Structures and Algorithms Workshop(25B18CS311)\",\"courseId\":\"824184574386\",\"title\":\"Assignment-6\",\"dueDate\":{\"year\":2027,\"month\":2,\"day\":3},\"dueTime\":{\"hours\":18,\"minutes\":29},\"state\":\"PUBLISHED\"}"
+  },
+  {
+    "id": "classroom-assignment-16",
+    "title": "Week 4(ADS)",
+    "source": "Google Classroom",
+    "text": "{\"courseName\":\"Advance Data Structures and Algorithms Workshop(25B18CS311)\",\"courseId\":\"824184574386\",\"title\":\"Week 4(ADS)\",\"dueDate\":{\"year\":2026,\"month\":2,\"day\":21},\"dueTime\":{\"hours\":7,\"minutes\":30},\"state\":\"PUBLISHED\"}"
+  },
+  {
+    "id": "classroom-assignment-17",
+    "title": "Week-3",
+    "source": "Google Classroom",
+    "text": "{\"courseName\":\"Advance Data Structures and Algorithms Workshop(25B18CS311)\",\"courseId\":\"824184574386\",\"title\":\"Week-3\",\"dueDate\":{\"year\":2026,\"month\":2,\"day\":10},\"dueTime\":{\"hours\":18,\"minutes\":29},\"state\":\"PUBLISHED\"}"
+  },
+  {
+    "id": "classroom-assignment-18",
+    "title": "Week-1",
+    "source": "Google Classroom",
+    "text": "{\"courseName\":\"Advance Data Structures and Algorithms Workshop(25B18CS311)\",\"courseId\":\"824184574386\",\"title\":\"Week-1\",\"state\":\"PUBLISHED\"}"
+  },
+  {
+    "id": "classroom-assignment-19",
+    "title": "Graded Assignment",
+    "source": "Google Classroom",
+    "text": "{\"courseName\":\"ILSDS (21B12CS314) EVEN 2026\",\"courseId\":\"793088462510\",\"title\":\"Graded Assignment\",\"dueDate\":{\"year\":2026,\"month\":5,\"day\":10},\"dueTime\":{\"hours\":18,\"minutes\":29},\"state\":\"PUBLISHED\"}"
+  },
+  {
+    "id": "classroom-assignment-20",
+    "title": "PBL",
+    "source": "Google Classroom",
+    "text": "{\"courseName\":\"ILSDS (21B12CS314) EVEN 2026\",\"courseId\":\"793088462510\",\"title\":\"PBL\",\"dueDate\":{\"year\":2026,\"month\":5,\"day\":10},\"dueTime\":{\"hours\":18,\"minutes\":29},\"state\":\"PUBLISHED\"}"
+  },
+  {
+    "id": "classroom-assignment-21",
+    "title": "Practice Assignment ",
+    "source": "Google Classroom",
+    "text": "{\"courseName\":\"ILSDS (21B12CS314) EVEN 2026\",\"courseId\":\"793088462510\",\"title\":\"Practice Assignment \",\"state\":\"PUBLISHED\"}"
+  },
+  {
+    "id": "classroom-assignment-22",
+    "title": "Assignement",
+    "source": "Google Classroom",
+    "text": "{\"courseName\":\"Statistics (16B1NMA633)\",\"courseId\":\"837900799702\",\"title\":\"Assignement\",\"dueDate\":{\"year\":2026,\"month\":4,\"day\":29},\"dueTime\":{\"hours\":18,\"minutes\":29},\"state\":\"PUBLISHED\"}"
+  },
+  {
+    "id": "classroom-assignment-23",
+    "title": "FDCC Assignment on 2nd May",
+    "source": "Google Classroom",
+    "text": "{\"courseName\":\"FDCC Even 2026\",\"courseId\":\"837772973492\",\"title\":\"FDCC Assignment on 2nd May\",\"state\":\"PUBLISHED\"}"
+  },
+  {
+    "id": "classroom-assignment-24",
+    "title": "Assignment 20th April",
+    "source": "Google Classroom",
+    "text": "{\"courseName\":\"FDCC Even 2026\",\"courseId\":\"837772973492\",\"title\":\"Assignment 20th April\",\"state\":\"PUBLISHED\"}"
+  },
+  {
+    "id": "classroom-assignment-25",
+    "title": "Assignment 28th April",
+    "source": "Google Classroom",
+    "text": "{\"courseName\":\"FDCC Even 2026\",\"courseId\":\"837772973492\",\"title\":\"Assignment 28th April\",\"state\":\"PUBLISHED\"}"
+  },
+  {
+    "id": "classroom-assignment-26",
+    "title": "PBL Submission",
+    "source": "Google Classroom",
+    "text": "{\"courseName\":\"FDCC Even 2026\",\"courseId\":\"837772973492\",\"title\":\"PBL Submission\",\"state\":\"PUBLISHED\"}"
+  },
+  {
+    "id": "classroom-assignment-27",
+    "title": "Assignment FDCC 13th April",
+    "source": "Google Classroom",
+    "text": "{\"courseName\":\"FDCC Even 2026\",\"courseId\":\"837772973492\",\"title\":\"Assignment FDCC 13th April\",\"state\":\"PUBLISHED\"}"
+  },
+  {
+    "id": "classroom-assignment-28",
+    "title": "Assignment FDCC",
+    "source": "Google Classroom",
+    "text": "{\"courseName\":\"FDCC Even 2026\",\"courseId\":\"837772973492\",\"title\":\"Assignment FDCC\",\"state\":\"PUBLISHED\"}"
+  },
+  {
+    "id": "classroom-assignment-29",
+    "title": "Assignment FDCC 20th March",
+    "source": "Google Classroom",
+    "text": "{\"courseName\":\"FDCC Even 2026\",\"courseId\":\"837772973492\",\"title\":\"Assignment FDCC 20th March\",\"state\":\"PUBLISHED\"}"
+  },
+  {
+    "id": "classroom-assignment-30",
+    "title": "FDCC Assignment on 27th Feb",
+    "source": "Google Classroom",
+    "text": "{\"courseName\":\"FDCC Even 2026\",\"courseId\":\"837772973492\",\"title\":\"FDCC Assignment on 27th Feb\",\"state\":\"PUBLISHED\"}"
+  },
+  {
+    "id": "classroom-assignment-31",
+    "title": "Assignment 3 FDCC on 17th Jan",
+    "source": "Google Classroom",
+    "text": "{\"courseName\":\"FDCC Even 2026\",\"courseId\":\"837772973492\",\"title\":\"Assignment 3 FDCC on 17th Jan\",\"state\":\"PUBLISHED\"}"
+  },
+  {
+    "id": "classroom-assignment-32",
+    "title": "Assignment 2 FDCC 10th Jan",
+    "source": "Google Classroom",
+    "text": "{\"courseName\":\"FDCC Even 2026\",\"courseId\":\"837772973492\",\"title\":\"Assignment 2 FDCC 10th Jan\",\"state\":\"PUBLISHED\"}"
+  },
+  {
+    "id": "classroom-assignment-33",
+    "title": "Assignment -1 FDCC 3rd Jan 2026",
+    "source": "Google Classroom",
+    "text": "{\"courseName\":\"FDCC Even 2026\",\"courseId\":\"837772973492\",\"title\":\"Assignment -1 FDCC 3rd Jan 2026\",\"dueDate\":{\"year\":2026,\"month\":1,\"day\":3},\"dueTime\":{\"hours\":3,\"minutes\":55},\"state\":\"PUBLISHED\"}"
   }
 ]

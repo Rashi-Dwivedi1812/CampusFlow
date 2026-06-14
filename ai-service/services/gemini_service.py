@@ -25,7 +25,7 @@ class GeminiService:
     def available(self) -> bool:
         return bool(self.api_key and self._client)
 
-    def generate_text(self, prompt: str, temperature: float = 0.2) -> str:
+def generate_text(self, prompt: str, temperature: float = 0.2) -> str:
         if not self.available:
             return ""
 
@@ -35,11 +35,12 @@ class GeminiService:
                 contents=prompt,
                 config={"temperature": temperature},
             )
-            return response.text.strip()
-        except Exception:
+            return response.text.strip() if response.text else ""
+        except Exception as e:
+            print(f"[gemini] generate_text error: {type(e).__name__}: {e}")
             return ""
 
-    def generate_json(
+def generate_json(
         self, prompt: str, schema: dict[str, Any] | None = None, temperature: float = 0.2
     ) -> dict[str, Any]:
         if not self.available:
@@ -57,7 +58,8 @@ class GeminiService:
                 config=config,
             )
             text = response.text.strip()
-        except Exception:
+        except Exception as e:
+            print(f"[gemini] generate_json error: {type(e).__name__}: {e}")
             return {}
 
         if not text:
