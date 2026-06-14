@@ -1,0 +1,26 @@
+[
+  {
+    "id": "profile",
+    "title": "Student profile",
+    "source": "JPortal",
+    "text": "photo&signature: photo: /9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBA; qualification: division: 1; fullmarks: 600; qualificationcode: 10th; obtainedmarks: 484; yearofpassing: 2021; cgpa: 0; percentagemarks:; generalinformation: cdistrict: Prayagraj; apaarid: 926474249497; academicyear: 2324; gender: M; cpostalcode: 211002; cstatename: UTTAR PRADE"
+  },
+  {
+    "id": "attendance",
+    "title": "Attendance",
+    "source": "JPortal",
+    "text": "meta: raw_response: client: JIIT; headerlist: branchdesc: COMPUTER SCIENCE & ENGINEERING; name: SACHIN MISHRA; programdesc: BA; attendance: studentattendancelist: LTpercantage: 70; individualsubjectcode: 15B11CI514; Tsubjectcomponentid: NDSCP19050000002; subje"
+  },
+  {
+    "id": "subjects",
+    "title": "Subjects and faculty",
+    "source": "JPortal",
+    "text": "semester: registration_code: 2026EVESEM; registration_id: NDRUM25100000001; subjects: employee_name: AKANSHA SINGH; employee_code: JIIT2286; minor_subject: N; remarks: REG; stytype: REG; credits: 4; subject; totalCredits: 23"
+  },
+  {
+    "id": "exams",
+    "title": "Exam events",
+    "source": "JPortal",
+    "text": "semester: registration_code: 2026EVESEM; registration_id: NDRUM25100000001; examEvents: exam_event_code: T1-2026 EVEN SEM; event_from: 1768242600000; exam_event_desc: T1-2026 EVEN SEM; registration_id: NDRUM2"
+  }
+]

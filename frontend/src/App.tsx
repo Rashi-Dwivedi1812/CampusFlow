@@ -1,6 +1,8 @@
 import { useState, useEffect, useCallback } from "react";
 import { loginInstitute, fetchDashboard, logout } from "./services/jportal";
 import UpcomingAssignments from "./components/upcomingAssignments";
+import AiDashboardWidgets from "./components/ai/AiDashboardWidgets";
+import AiChatAssistant from "./components/ai/AiChatAssistant";
 import "./App.css";
 
 interface Subject {
@@ -18,9 +20,9 @@ interface ExamEvent {
 
 interface AttendanceStudent {
   subjectcode?: string;
-  Ppercentage?: unknown;
-  LTpercantage?: unknown;
-  Lpercentage?: unknown;
+  Ppercentage?: number | string | null;
+  LTpercantage?: number | string | null;
+  Lpercentage?: number | string | null;
 }
 
 interface DashboardData {
@@ -53,19 +55,6 @@ interface DashboardData {
 interface InfoCardProps {
   title: string;
   value?: string | number | null;
-}
-
-function getPercentageValue(value: unknown) {
-  return typeof value === "number" ? value : 0;
-}
-
-function getAttendancePercentage(item: AttendanceStudent) {
-  return (
-    getPercentageValue(item.Ppercentage) ||
-    getPercentageValue(item.LTpercantage) ||
-    getPercentageValue(item.Lpercentage) ||
-    0
-  );
 }
 
 function InfoCard({ title, value }: InfoCardProps) {
@@ -294,6 +283,11 @@ function App() {
                   />
                 </div>
 
+                <AiDashboardWidgets
+                  sessionId={sessionId}
+                  dashboard={dashboard}
+                />
+
                 <UpcomingAssignments />
               </div>
             )}
@@ -377,7 +371,7 @@ function App() {
     </h3>
 
     {dashboard.attendance?.attendance?.studentattendancelist?.map(
-      (item: any, index: number) => (
+      (item: AttendanceStudent, index: number) => (
         <div
           key={index}
           className="bg-slate-800 p-4 rounded-xl mb-3"
@@ -405,6 +399,7 @@ function App() {
         )}
       </main>
     </div>
+    <AiChatAssistant sessionId={sessionId} dashboard={dashboard} />
   </div>
 );
 }

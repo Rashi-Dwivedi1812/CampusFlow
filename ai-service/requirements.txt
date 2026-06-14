@@ -1,0 +1,13 @@
+fastapi
+uvicorn[standard]
+google-generativeai
+faiss-cpu
+sentence-transformers
+beautifulsoup4
+langchain
+python-dotenv
+apscheduler
+numpy
+pandas
+pydantic
+requests
