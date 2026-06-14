@@ -11,12 +11,13 @@ class GeminiService:
     def __init__(self) -> None:
         self.api_key = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")
         self._client = None
+        self._genai = None
         if self.api_key:
             try:
-                import google.generativeai as genai
+                import google.genai as google_genai
 
-                genai.configure(api_key=self.api_key)
-                self._client = genai
+                self._genai = google_genai
+                self._client = google_genai.Client(api_key=self.api_key)
             except Exception:
                 self._client = None
 
@@ -29,27 +30,32 @@ class GeminiService:
             return ""
 
         try:
-            model = self._client.GenerativeModel("gemini-1.5-flash")
-            response = model.generate_content(
-                prompt,
-                generation_config={"temperature": temperature},
+            response = self._client.models.generate_content(
+                model="gemini-2.5-flash",
+                contents=prompt,
+                config={"temperature": temperature},
             )
             return response.text.strip()
         except Exception:
             return ""
 
-    def generate_json(self, prompt: str, schema: dict[str, Any] | None = None, temperature: float = 0.2) -> dict[str, Any]:
+    def generate_json(
+        self, prompt: str, schema: dict[str, Any] | None = None, temperature: float = 0.2
+    ) -> dict[str, Any]:
         if not self.available:
             return {}
 
         try:
-            model = self._client.GenerativeModel("gemini-1.5-flash")
-            generation_config = {"temperature": temperature}
+            config = {"temperature": temperature}
             if schema:
-                generation_config["response_mime_type"] = "application/json"
-                generation_config["response_schema"] = schema
+                config["response_mime_type"] = "application/json"
+                config["response_schema"] = schema
 
-            response = model.generate_content(prompt, generation_config=generation_config)
+            response = self._client.models.generate_content(
+                model="gemini-2.5-flash",
+                contents=prompt,
+                config=config,
+            )
             text = response.text.strip()
         except Exception:
             return {}
